@@ -1,0 +1,68 @@
+metadata:
+description: "Configuration for detail detection"
+last_updated: "2024-12-02"
+
+find_circle:
+  parameters:
+    blur_kern_size_circle: [1, 29, 5, 2]
+    thresh_canny: [1, 200, 54, 1]
+    thresh_center: [1, 200, 84, 1]
+    min_R: [1, 1000, 12, 1]
+    max_R: [1, 1000, 150, 1]
+    min_dist: [1, 100, 3, 1]
+    blockSize: [3, 255, 3, 2]
+    close_kern: [1, 19, 1, 2]
+    open_kern: [1, 19, 1, 2]
+    close_1_open_2:
+      type: checkbox
+      default: true
+    adaptive_method:
+      type: selectbox
+      options:
+      - "None"
+      - "ADAPTIVE_THRESH_MEAN_C"
+      - "ADAPTIVE_THRESH_GAUSSIAN_C"
+      default: "None"
+
+
+# надо поправить код в file_1.py и maiin_streamlit.py
+find_contours:
+  parameters:
+    use_find_circle:
+      type: checkbox
+      default: true
+    point_control_x:
+      type: text_input
+      default: 870
+    point_control_y:
+      type: text_input
+      default: 384
+    blur_kern_size: [1, 29, 3, 2]
+    thresh_1: [1, 500, 10, 1]
+    thresh_2: [1, 500, 50, 1]
+    cx:
+      type: text_input
+      default: 512
+    cy:
+      type: text_input
+      default: 384
+    maxR:
+      type: text_input
+      default: 270
+    minR:
+      type: text_input
+      default: 140
+        #dr: 
+            #type: text_input
+            #default: 300
+
+
+# Пример добавления других функций
+find_angle:
+  parameters:
+    num_detail:
+      type: text_input
+      default: 1
+    percentages_of_percentiles: [1, 100, 25, 1]
+    internal_spacing: [1, 100, 10, 1]
+    eps: [1, 20, 6, 1]
